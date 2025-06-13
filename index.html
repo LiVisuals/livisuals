@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="text-gray-800 font-serif bg-white">
+
+  <!-- Header (Copied from about.html for consistency) -->
+  <header class="w-full shadow-sm fixed top-0 z-20 bg-white">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      <a href="/" class="block w-fit">
+        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810675/livilogo_a2mgcj.jpg"
+          alt="Livisuals Logo" class="h-24 sm:h-20 md:h-24 lg:h-28 xl:h-32 w-auto object-contain" />
+      </a>
+      <nav class="hidden md:flex space-x-6 text-sm uppercase font-light">
+        <a href="#" class="hover:text-gray-500">Home</a>
+        <a href="about.html" class="hover:text-gray-500">About</a>
+        <a href="contact.html" class="hover:text-gray-500">Contact</a>
+      </nav>
+      <!-- Mobile Nav Button -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-3xl">&#9776;</button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4">
+      <a href="#" class="block py-2 text-sm uppercase">Home</a>
+      <a href="about.html" class="block py-2 text-sm uppercase">About</a>
+      <a href="contact.html" class="block py-2 text-sm uppercase">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-40 relative overflow-hidden">
+    <!-- Desktop Video -->
+    <div class="hidden md:block relative w-full h-[90vh]">
+      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover object-center">
+        <source src="https://res.cloudinary.com/dhisree7q/video/upload/v1749818715/amfk6vhjg5xyasdoeuvc.mp4"
+          type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-20 z-10 flex items-center justify-center">
+        <!-- Optional desktop overlay -->
+      </div>
+    </div>
+
+    <!-- Mobile Video -->
+    <div class="md:hidden relative w-full h-[65vh] overflow-hidden">
+      <iframe
+        src="https://player.cloudinary.com/embed/?cloud_name=dhisree7q&public_id=u10ipaffcs1fz3r6w5vr&player[autoplay]=true&player[loop]=true&player[muted]=true&player[controls]=false"
+        allow="autoplay; encrypted-media" allowfullscreen class="absolute top-1/2 left-1/2 w-full h-full border-none"
+        style="transform: translate(-50%, -50%) scale(3.2); transform-origin: center center; object-fit: cover;">
+      </iframe>
+    </div>
+
+    <!-- About Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-6">HELLO, WE ARE LiVisuals.</h2>
+        <p class="mb-4">At LiVisuals, we are passionate visual storytellers, dedicated to capturing love, emotion, and
+          unforgettable moments through our lens.</p>
+        <p class="mb-4">From elegant elopements to lavish wedding celebrations, we document your journey with artistry
+          and
+          authenticity.</p>
+        <p>Let us transform your special day into a timeless visual narrative you’ll cherish for a lifetime.</p>
+      </div>
+      <!-- <div>
+        <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691" alt="Couple"
+          class="rounded-lg shadow-lg" />
+      </div> -->
+      <div class="relative w-full h-72 md:h-96 overflow-hidden rounded-lg shadow-lg">
+        <img id="slideshow" src="https://via.placeholder.com/600x400?text=1"
+          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100"
+          alt="Slideshow Image" />
+      </div>
+
+      <script>
+        const slideshowImages = [
+          "https://res.cloudinary.com/dhisree7q/image/upload/v1749810190/DSC05462_2_msdcxc.jpg",
+          "https://res.cloudinary.com/dhisree7q/image/upload/v1749810188/A4FDCAE8-F207-4938-B133-48900B543FCE_2_f1rzek.jpg",
+          "https://res.cloudinary.com/dhisree7q/image/upload/v1749810188/3J9A0676_2_rmlelf.jpg",
+          "https://res.cloudinary.com/dhisree7q/image/upload/v1749810193/SBS29510_2_buqu5b.jpg",
+          "https://res.cloudinary.com/dhisree7q/image/upload/v1749810622/1S9A5347_2_o3coxx.jpg",
+          // "https://via.placeholder.com/600x400?text=6",
+          // "https://via.placeholder.com/600x400?text=7",
+          // "https://via.placeholder.com/600x400?text=8",
+          // "https://via.placeholder.com/600x400?text=9",
+          // "https://via.placeholder.com/600x400?text=10"
+        ];
+
+        let currentSlide = 0;
+        const slideEl = document.getElementById('slideshow');
+
+        setInterval(() => {
+          currentSlide = (currentSlide + 1) % slideshowImages.length;
+          slideEl.classList.remove('opacity-100');
+          slideEl.classList.add('opacity-0');
+
+          setTimeout(() => {
+            slideEl.src = slideshowImages[currentSlide];
+            slideEl.classList.remove('opacity-0');
+            slideEl.classList.add('opacity-100');
+          }, 400); // match transition duration for smooth effect
+        }, 4000); // 4 seconds per image
+      </script>
+    </section>
+
+    <!-- 3 Column Callouts -->
+    <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-6 text-center">
+      <div class="relative group">
+        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810192/SBS29692_2_ygei0t.jpg"
+          class="h-80 w-full object-cover rounded-lg" />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition">
+          <h3 class="text-xl font-semibold">About Me</h3>
+          <p class="text-sm mt-1">GET TO KNOW ME</p>
+        </div>
+      </div>
+      <div class="relative group">
+        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810632/DSC05462_2_asezgi.jpg"
+          class="h-80 w-full object-cover rounded-lg" />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition">
+          <h3 class="text-xl font-semibold">My Portfolio</h3>
+          <p class="text-sm mt-1">CHECK OUT MY WORK</p>
+        </div>
+      </div>
+      <div class="relative group">
+        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810193/SBS29510_2_buqu5b.jpg"
+          class="h-80 w-full object-cover rounded-lg" />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition">
+          <h3 class="text-xl font-semibold">Investment</h3>
+          <p class="text-sm mt-1">WHAT DOES IT COST?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-gray-500 text-sm">
+      “Capturing Your Love, Frame by Frame.”
+    </footer>
+
+    <!-- Script for Mobile Menu -->
+    <script>
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    </script>
+
+</body>
+
+</html>

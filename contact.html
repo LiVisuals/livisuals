@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeIn: "fadeIn 1.2s ease-out both",
+            fadeInUp: "fadeInUp 1.2s ease-out both",
+            fadeInDelayed: "fadeIn 1.8s ease-out both"
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            },
+            fadeInUp: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-serif text-gray-800 bg-white">
+
+  <!-- Header -->
+  <header class="w-full shadow-sm fixed top-0 z-20 bg-white">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      <a href="contact.html" class="block w-fit">
+        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810675/livilogo_a2mgcj.jpg"
+          alt="Livisuals Logo" class="h-24 sm:h-24 md:h-28 lg:h-32 xl:h-32 w-auto object-contain mx-auto sm:mx-0" />
+      </a>
+      <nav class="hidden md:flex space-x-6 text-sm uppercase font-light">
+        <a href="index.html" class="hover:text-gray-500">Home</a>
+        <a href="about.html" class="hover:text-gray-500">About</a>
+        <a href="contact.html" class="hover:text-gray-500">Contact</a>
+      </nav>
+      <!-- Mobile Nav Button -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-3xl">&#9776;</button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4">
+      <a href="index.html" class="block py-2 text-sm uppercase">Home</a>
+      <a href="about.html" class="block py-2 text-sm uppercase">About</a>
+      <a href="contact.html" class="block py-2 text-sm uppercase">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Image -->
+  <section class="pt-40 animate-fadeIn">
+    <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810193/SBS29730_2_feun5b.jpg" alt="Wedding Couple"
+      class="w-full h-[45vh] md:h-[60vh] object-cover" />
+  </section>
+
+  <!-- Title -->
+  <section class="bg-white text-center px-4 py-6 animate-fadeInUp">
+    <h1 class="text-3xl md:text-5xl font-light tracking-widest">CONTACT US</h1>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="bg-gray-100 px-6 py-16 md:px-20">
+    <form class="grid gap-6 text-sm max-w-4xl mx-auto animate-fadeInDelayed">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-1">Your Name *</label>
+          <input type="text" class="w-full border px-4 py-2" required />
+        </div>
+        <div>
+          <label class="block mb-1">Email Address *</label>
+          <input type="email" class="w-full border px-4 py-2" required />
+        </div>
+      </div>
+
+      <div>
+        <label class="block mb-1">Phone Number *</label>
+        <input type="tel" class="w-full border px-4 py-2" required />
+      </div>
+
+      <div>
+        <label class="block mb-1 uppercase text-xs tracking-wide">What type of session are you looking for?</label>
+        <div class="grid md:grid-cols-2 gap-2">
+          <label><input type="radio" name="session" /> Wedding</label>
+          <label><input type="radio" name="session" /> Reception</label>
+          <label><input type="radio" name="session" /> Civil</label>
+          <label><input type="radio" name="session" /> Engagement</label>
+          <label><input type="radio" name="session" /> Proposal</label>
+          <label><input type="radio" name="session" /> E-Shoot</label>
+          <label><input type="radio" name="session" /> Birthday</label>
+          <label><input type="radio" name="session" /> Fashion</label>
+          <label><input type="radio" name="session" /> Casual</label>
+          <label><input type="radio" name="session" /> Other</label>
+        </div>
+      </div>
+
+      <div>
+        <label class="block mb-1">Event Date *</label>
+        <input type="date" class="w-full border px-4 py-2" required />
+      </div>
+
+      <div>
+        <label class="block mb-1">Message *</label>
+        <textarea rows="4" class="w-full border px-4 py-2" required></textarea>
+      </div>
+
+      <div>
+        <label class="block mb-1">How did you hear about us?</label>
+        <select class="w-full border px-4 py-2">
+          <option>Select option</option>
+          <option>Instagram</option>
+          <option>Referral</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <button class="mt-4 bg-black text-white px-6 py-3 w-fit hover:bg-gray-800">
+        SEND MESSAGE
+      </button>
+    </form>
+  </section>
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+
+</html>
