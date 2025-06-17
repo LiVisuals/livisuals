@@ -45,12 +45,10 @@
         <a href="about.html" class="hover:text-gray-500">About</a>
         <a href="contact.html" class="hover:text-gray-500">Contact</a>
       </nav>
-      <!-- Mobile Nav Button -->
       <div class="md:hidden">
         <button id="menuToggle" class="text-3xl">&#9776;</button>
       </div>
     </div>
-    <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden md:hidden px-6 pb-4">
       <a href="index.html" class="block py-2 text-sm uppercase">Home</a>
       <a href="about.html" class="block py-2 text-sm uppercase">About</a>
@@ -71,52 +69,52 @@
 
   <!-- Contact Form -->
   <section class="bg-gray-100 px-6 py-16 md:px-20">
-    <form class="grid gap-6 text-sm max-w-4xl mx-auto animate-fadeInDelayed">
+    <form id="contactForm" class="grid gap-6 text-sm max-w-4xl mx-auto animate-fadeInDelayed">
       <div class="grid md:grid-cols-2 gap-4">
         <div>
           <label class="block mb-1">Your Name *</label>
-          <input type="text" class="w-full border px-4 py-2" required />
+          <input type="text" name="name" class="w-full border px-4 py-2" required />
         </div>
         <div>
           <label class="block mb-1">Email Address *</label>
-          <input type="email" class="w-full border px-4 py-2" required />
+          <input type="email" name="email" class="w-full border px-4 py-2" required />
         </div>
       </div>
 
       <div>
         <label class="block mb-1">Phone Number *</label>
-        <input type="tel" class="w-full border px-4 py-2" required />
+        <input type="tel" name="phone" class="w-full border px-4 py-2" required />
       </div>
 
       <div>
         <label class="block mb-1 uppercase text-xs tracking-wide">What type of session are you looking for?</label>
         <div class="grid md:grid-cols-2 gap-2">
-          <label><input type="radio" name="session" /> Wedding</label>
-          <label><input type="radio" name="session" /> Reception</label>
-          <label><input type="radio" name="session" /> Civil</label>
-          <label><input type="radio" name="session" /> Engagement</label>
-          <label><input type="radio" name="session" /> Proposal</label>
-          <label><input type="radio" name="session" /> E-Shoot</label>
-          <label><input type="radio" name="session" /> Birthday</label>
-          <label><input type="radio" name="session" /> Fashion</label>
-          <label><input type="radio" name="session" /> Casual</label>
-          <label><input type="radio" name="session" /> Other</label>
+          <label><input type="radio" name="sessionType" value="Wedding" /> Wedding</label>
+          <label><input type="radio" name="sessionType" value="Reception" /> Reception</label>
+          <label><input type="radio" name="sessionType" value="Civil" /> Civil</label>
+          <label><input type="radio" name="sessionType" value="Engagement" /> Engagement</label>
+          <label><input type="radio" name="sessionType" value="Proposal" /> Proposal</label>
+          <label><input type="radio" name="sessionType" value="E-Shoot" /> E-Shoot</label>
+          <label><input type="radio" name="sessionType" value="Birthday" /> Birthday</label>
+          <label><input type="radio" name="sessionType" value="Fashion" /> Fashion</label>
+          <label><input type="radio" name="sessionType" value="Casual" /> Casual</label>
+          <label><input type="radio" name="sessionType" value="Other" /> Other</label>
         </div>
       </div>
 
       <div>
         <label class="block mb-1">Event Date *</label>
-        <input type="date" class="w-full border px-4 py-2" required />
+        <input type="date" name="eventDate" class="w-full border px-4 py-2" required />
       </div>
 
       <div>
         <label class="block mb-1">Message *</label>
-        <textarea rows="4" class="w-full border px-4 py-2" required></textarea>
+        <textarea name="message" rows="4" class="w-full border px-4 py-2" required></textarea>
       </div>
 
       <div>
         <label class="block mb-1">How did you hear about us?</label>
-        <select class="w-full border px-4 py-2">
+        <select name="heardFrom" class="w-full border px-4 py-2">
           <option>Select option</option>
           <option>Instagram</option>
           <option>Referral</option>
@@ -124,18 +122,53 @@
         </select>
       </div>
 
-      <button class="mt-4 bg-black text-white px-6 py-3 w-fit hover:bg-gray-800">
+      <button type="submit" class="mt-4 bg-black text-white px-6 py-3 w-fit hover:bg-gray-800">
         SEND MESSAGE
       </button>
     </form>
   </section>
 
-  <!-- Mobile Menu Toggle -->
   <script>
     const toggle = document.getElementById('menuToggle');
     const menu = document.getElementById('mobileMenu');
     toggle.addEventListener('click', () => {
       menu.classList.toggle('hidden');
+    });
+
+    // CONTACT FORM SUBMIT
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        eventDate: form.eventDate.value,
+        sessionType: form.sessionType.value,
+        heardFrom: form.heardFrom.value,
+        message: form.message.value
+      };
+
+      try {
+        const res = await fetch("https://livisuals-api.vercel.app/api/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        if (result.sent) {
+          alert("Thank you! Your message has been sent.");
+          form.reset();
+        } else {
+          alert("Oops! Something went wrong.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Error sending message. Please try again.");
+      }
     });
   </script>
 
