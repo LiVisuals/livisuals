@@ -129,48 +129,53 @@
   </section>
 
   <script>
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('mobileMenu');
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
 
-    // CONTACT FORM SUBMIT
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        eventDate: form.eventDate.value,
-        sessionType: form.sessionType.value,
-        heardFrom: form.heardFrom.value,
-        message: form.message.value
-      };
+      // Contact form submission
+      const form = document.getElementById("contactForm");
+      if (form) {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const data = {
+            name: form.name.value,
+            email: form.email.value,
+            phone: form.phone.value,
+            eventDate: form.eventDate.value,
+            sessionType: form.sessionType.value,
+            heardFrom: form.heardFrom.value,
+            message: form.message.value
+          };
 
-      try {
-        const res = await fetch("https://livisuals-api.vercel.app/api/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
+          try {
+            const res = await fetch("https://livisuals-api.vercel.app/api/send", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            if (result.sent) {
+              alert("✅ Thank you! Your message has been sent.");
+              form.reset();
+            } else {
+              alert("⚠️ Something went wrong while sending your message.");
+            }
+          } catch (err) {
+            console.error(err);
+            alert("❌ Error connecting to server. Please try again.");
+          }
         });
-
-        const result = await res.json();
-        if (result.sent) {
-          alert("Thank you! Your message has been sent.");
-          form.reset();
-        } else {
-          alert("Oops! Something went wrong.");
-        }
-      } catch (err) {
-        console.error(err);
-        alert("Error sending message. Please try again.");
       }
     });
   </script>
+
 
 </body>
 
