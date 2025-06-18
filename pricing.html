@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | LiVisuals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeInUp: "fadeInUp 1s ease-out forwards",
+          },
+          keyframes: {
+            fadeInUp: {
+              "0%": { opacity: 0, transform: "translateY(20px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="text-gray-800 font-serif bg-white">
+
+  <!-- Header -->
+  <header class="w-full shadow-sm fixed top-0 z-20 bg-white">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      <a href="/" class="block w-fit">
+        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810675/livilogo_a2mgcj.jpg"
+          alt="Livisuals Logo" class="h-24 sm:h-20 md:h-24 lg:h-28 xl:h-32 w-auto object-contain" />
+      </a>
+      <nav class="hidden md:flex space-x-6 text-sm uppercase font-light">
+        <a href="index.html" class="hover:text-gray-500">Home</a>
+        <a href="pricing.html" class="hover:text-gray-500">Pricing</a>
+        <a href="about.html" class="hover:text-gray-500">About</a>
+        <a href="contact.html" class="hover:text-gray-500">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="text-3xl">&#9776;</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+      <a href="index.html" class="block py-2 text-sm uppercase">Home</a>
+      <a href="pricing.html" class="block py-2 text-sm uppercase">Pricing</a>
+      <a href="about.html" class="block py-2 text-sm uppercase">About</a>
+      <a href="contact.html" class="block py-2 text-sm uppercase">Contact</a>
+    </div>
+  </header>
+
+  <!-- Pricing Section -->
+  <section class="max-w-4xl mx-auto px-6 pt-40 pb-10 animate-fadeInUp text-center">
+    <h1 class="text-4xl font-bold mb-6">Pricing</h1>
+    <p class="mb-4">Thank you for your interest in LiVisuals! To help us provide you with a personalized and accurate quote, please complete the form on our <a href="contact.html" class="text-blue-600 underline">Contact Us</a> page with as much detail as possible about your wedding and any specific requests.</p>
+    <p class="mb-4">Every wedding is unique, so we tailor each quote to fit your individual needs perfectly.</p>
+    <p class="mb-4">Once we receive your information, our team will carefully review your details and respond promptly with a custom proposal.</p>
+    <p class="mb-4">Should we need further information to fine-tune your quote, we’ll be in touch to ensure everything is clear.</p>
+    <p class="mb-6">We appreciate the opportunity to be part of your special day and look forward to creating a package just for you.</p>
+  </section>
+
+  <!-- Image Section -->
+  <section class="max-w-4xl mx-auto px-6 pb-20 animate-fadeInUp">
+    <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086991/optimized_3j9a6453_2_opc7lf.jpg"
+      alt="LiVisuals Portfolio"
+      class="rounded-xl shadow-2xl transform transition-transform duration-1000 hover:scale-105 w-full object-cover" />
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 text-center text-gray-500 text-sm">
+    © 2025 LiVisuals. you live in the moment, we make it last.
+  </footer>
+
+  <!-- JS for Mobile Menu -->
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+
+</html>

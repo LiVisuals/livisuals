@@ -29,6 +29,13 @@
       }
     }
   </script>
+  <style>
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  </style>
 </head>
 
 <body class="font-serif text-gray-800 bg-white">
@@ -42,6 +49,7 @@
       </a>
       <nav class="hidden md:flex space-x-6 text-sm uppercase font-light">
         <a href="index.html" class="hover:text-gray-500">Home</a>
+        <a href="pricing.html" class="hover:text-gray-500">Pricing</a>
         <a href="about.html" class="hover:text-gray-500">About</a>
         <a href="contact.html" class="hover:text-gray-500">Contact</a>
       </nav>
@@ -51,6 +59,7 @@
     </div>
     <div id="mobileMenu" class="hidden md:hidden px-6 pb-4">
       <a href="index.html" class="block py-2 text-sm uppercase">Home</a>
+      <a href="pricing.html" class="block py-2 text-sm uppercase">Pricing</a>
       <a href="about.html" class="block py-2 text-sm uppercase">About</a>
       <a href="contact.html" class="block py-2 text-sm uppercase">Contact</a>
     </div>
@@ -122,11 +131,27 @@
         </select>
       </div>
 
-      <button type="submit" class="mt-4 bg-black text-white px-6 py-3 w-fit hover:bg-gray-800">
-        SEND MESSAGE
-      </button>
+
+      <div class="flex justify-center">
+        <button type="submit" class="mt-6 bg-black text-white px-6 py-3 hover:bg-gray-800">
+          SEND MESSAGE
+        </button>
+      </div>
+
+      <!-- Contact Info inside form -->
+      <div class="bg-white border border-gray-300 rounded-lg px-4 py-4 text-center text-sm text-gray-700 shadow-sm">
+        <p class="mb-1">
+          <span class="font-medium">Email:</span>
+          <a href="mailto:info@livisuals.co.uk" class="text-blue-600 hover:underline">info@livisuals.co.uk</a>
+        </p>
+        <p>
+          <span class="font-medium">Phone:</span>
+          <a href="tel:07934478780" class="text-blue-600 hover:underline">07934478780</a>
+        </p>
+      </div>
     </form>
   </section>
+
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
