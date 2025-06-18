@@ -87,7 +87,7 @@
           "https://res.cloudinary.com/dhisree7q/image/upload/v1750086991/optimized_3j9a6453_2_opc7lf.jpg",
           "https://res.cloudinary.com/dhisree7q/image/upload/v1749810190/DSC05462_2_msdcxc.jpg",
           "https://res.cloudinary.com/dhisree7q/image/upload/v1749810188/A4FDCAE8-F207-4938-B133-48900B543FCE_2_f1rzek.jpg",
-          "https://res.cloudinary.com/dhisree7q/image/upload/v1749810188/3J9A0676_2_rmlelf.jpg",
+          // "https://res.cloudinary.com/dhisree7q/image/upload/v1749810188/3J9A0676_2_rmlelf.jpg",
           "https://res.cloudinary.com/dhisree7q/image/upload/v1749810193/SBS29510_2_buqu5b.jpg",
           "https://res.cloudinary.com/dhisree7q/image/upload/v1749810622/1S9A5347_2_o3coxx.jpg",
           // "https://res.cloudinary.com/dhisree7q/image/upload/v1750086991/optimized_3j9a6453_2_opc7lf.jpg",
@@ -114,36 +114,56 @@
       </script>
     </section>
 
-    <!-- 3 Column Callouts -->
-    <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-6 text-center">
-      <div class="relative group">
-        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086987/optimized_sbs26117_2_frnokr.jpg"
-          class="h-80 w-full object-cover rounded-lg" />
-        <div
-          class="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition">
-          <h3 class="text-xl font-semibold">Couple 1</h3>
-          <!-- <p class="text-sm mt-1">GET TO KNOW ME</p> -->
-        </div>
-      </div>
-      <div class="relative group">
-        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086989/optimized_dsc05310_2_wrwnd4.jpg"
-          class="h-80 w-full object-cover rounded-lg" />
-        <div
-          class="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition">
-          <h3 class="text-xl font-semibold">Couple 2</h3>
-          <!-- <p class="text-sm mt-1">CHECK OUT MY WORK</p> -->
-        </div>
-      </div>
-      <div class="relative group">
-        <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810193/SBS29510_2_buqu5b.jpg"
-          class="h-80 w-full object-cover rounded-lg" />
-        <div
-          class="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition">
-          <h3 class="text-xl font-semibold">Couple 3</h3>
-          <!-- <p class="text-sm mt-1">WHAT DOES IT COST?</p> -->
+    <!-- Seamless Auto-Scrolling Horizontal Gallery -->
+    <section class="overflow-hidden py-16 bg-white">
+      <div class="relative w-full">
+        <div class="flex gap-4 whitespace-nowrap animate-marquee">
+          <!-- Set 1 -->
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086987/optimized_sbs26117_2_frnokr.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086989/optimized_dsc05286_2_xh9sao.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810193/SBS29730_2_feun5b.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086992/optimized_3j9a0029_2_qpa9cr.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086988/optimized_sbs18799_2_a3gkse.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <!-- Set 2 (Duplicate) -->
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086987/optimized_sbs18820_2_dnfuli.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810188/A4FDCAE8-F207-4938-B133-48900B543FCE_2_f1rzek.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086988/optimized_dsc05398_2_uylms1.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1750086986/optimized_sbs26307_2_md8qwc.jpg"
+            class="h-96 rounded-lg object-cover" />
+          <img src="https://res.cloudinary.com/dhisree7q/image/upload/v1749810622/1S9A5347_2_o3coxx.jpg"
+            class="h-96 rounded-lg object-cover" />
         </div>
       </div>
     </section>
+
+    <style>
+      @keyframes marquee {
+        0% {
+          transform: translateX(0%);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-marquee {
+        animation: marquee 50s linear infinite;
+      }
+
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
+    </style>
+
 
     <!-- Footer -->
     <footer class="py-10 text-center text-gray-500 text-sm">
